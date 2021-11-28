@@ -1,4 +1,5 @@
 function [x] = jacobi_metoda(gamma)
+
 format longG
 dimension = 20;
 
