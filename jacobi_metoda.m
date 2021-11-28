@@ -1,5 +1,5 @@
 function [x] = jacobi_metoda(gamma)
-
+format longG
 dimension = 20;
 
 x = zeros(dimension,1);
@@ -29,7 +29,8 @@ while (norm(A*x - b) / norm(b)) >= (10 ^-6)
     iterations = iterations+1;
 end
 
-% display(iterations)
+display(iterations)
+
 % for c = 1:10
 %     x_k = D\(b-(Ls+Us)*x);
 %     disp(x_k)
