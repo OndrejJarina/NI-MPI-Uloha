@@ -30,9 +30,3 @@ while (norm(A*x - b) / norm(b)) >= (10 ^-6)
 end
 
 display(iterations)
-
-% for c = 1:10
-%     x_k = D\(b-(Ls+Us)*x);
-%     disp(x_k)
-%     x = x_k;
-% end
