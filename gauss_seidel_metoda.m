@@ -8,10 +8,10 @@ dimension = 20;
 % pociatocne x je rovne nulovemu vektoru
 x = zeros(dimension,1);
 
-% vytvorenie matice A - tri zlozky (Ls - horna trojuholnikova matica
-% Us - dolna trojuholnikova matica, D - diagonalna matica)
-Ls = diag(ones(1,(dimension-1))*(-1), 1);
-Us = diag(ones(1, (dimension-1))*(-1), -1);
+% vytvorenie matice A - tri zlozky (Ls - dolna trojuholnikova matica
+% Us - horna trojuholnikova matica, D - diagonalna matica)
+Us = diag(ones(1,(dimension-1))*(-1), 1);
+Ls = diag(ones(1, (dimension-1))*(-1), -1);
 D = diag(ones(1, dimension)*gamma);
 A = (Ls + Us + D);
 
@@ -24,9 +24,10 @@ b(dimension) = b(dimension)+1;
 % matica A musi byt symetricka a pozitivne definitna
 if (~issymmetric(A))
     error("Matrix is not symetric!");
-    
+end
+
 % vlastne cisla su vacsie ako 0
-elseif (~all(eig(A) > 0)) 
+if (~all(eig(A) > 0)) 
     error ("Matrix is not positive definite!");
 end
 
