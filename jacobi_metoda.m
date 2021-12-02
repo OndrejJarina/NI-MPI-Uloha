@@ -24,9 +24,8 @@ b(dimension) = b(dimension)+1;
 % kontrola podmienky konvergencie
 % podmienkou konvergencie je, ci matica je ostro diagonalne dominantna
 rowsSum = sum(abs(Ls+Us), 1);
-columnsSum = sum(abs(Ls+Us), 2);
 
-if ~(all(rowsSum < sum(abs(D))) && all(columnsSum.' < sum(abs(D)))) 
+if ~all(rowsSum < sum(abs(D))) 
     error("Matrix is not diagonally dominant!"); 
 end
 
