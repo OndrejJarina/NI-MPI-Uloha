@@ -24,6 +24,8 @@ b(dimension) = b(dimension)+1;
 % matica A musi byt symetricka a pozitivne definitna
 if (~issymmetric(A))
     error("Matrix is not symetric!");
+    
+% vlastne cisla su vacsie ako 0
 elseif (~all(eig(A) > 0)) 
     error ("Matrix is not positive definite!");
 end
