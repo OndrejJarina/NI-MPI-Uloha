@@ -21,12 +21,19 @@ b = ones(dimension,1)*(gamma - 2);
 b(1) = b(1)+1;
 b(dimension) = b(dimension)+1;
 
-% kontrola podmienky konvergencie
+W = eye(dimension) - D\A;
+
+% kontrola nutnej podmienky konvergencie
+if (norm(W) >= 1)
+    error("Matrix does not converge")
+end
+
+% kontrola postacujucej podmienky konvergencie
 % podmienkou konvergencie je, ci matica je ostro diagonalne dominantna
 rowsSum = sum(abs(Ls+Us), 1);
 
 if ~all(rowsSum < sum(abs(D))) 
-    error("Matrix is not diagonally dominant!"); 
+    disp("Matrix is not diagonally dominant!"); 
 end
 
 iterations = 0;
